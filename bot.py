@@ -1,9 +1,11 @@
 from telebot import TeleBot
 from keyboard import generate_main_menu, laptop_manu, buy_laptop
 from parser_laptops import product_data
+import os
 
-token = '6867417918:AAFzPqIhI4GXQ8jyO2Wt5RgbQnakkYbV9Hw'
+token = os.environ.get('TOKEN')
 bot = TeleBot(token)
+
 
 @bot.message_handler(['start'])
 def start(message):
@@ -43,3 +45,6 @@ while True:
     except:
         print("error")
         bot.stop_polling()
+
+
+

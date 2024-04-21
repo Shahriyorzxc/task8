@@ -8,6 +8,7 @@ product_data = []
 soup = BeautifulSoup(data, 'html.parser')
 main_block = soup.find('div', class_='row')
 block = main_block.find_all('div', class_='col-6')
+#Parsing
 for product in block:
     image = product.find('img', class_='img-fluid')['data-src']
     product_name = product.find('span', class_='product__item__info-title').get_text()
@@ -20,6 +21,8 @@ for product in block:
     year_price = one_month[-2] + ' ' + one_month[-1]
     kredit = f"1 oy uchun to'lanadigan narx -> {one_month_price}\nTolov muddati: {year_price}"
     product_data.append({
+
+#Data base
         'Noutbok nomi': str_product_name,
         'Noutbok rasmi': image,
         'Noutbok narxi': product_price,
